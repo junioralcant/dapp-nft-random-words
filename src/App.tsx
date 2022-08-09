@@ -17,8 +17,6 @@ function App() {
   const [currentAccount, setCurrentAccount] = useState('');
   const [messageToUser, setmessageToUser] = useState('');
   const [totalNFTMinted, setTotalNFTMinted] = useState(0);
-  const [updatetotalNFTMinted, setUpdateTotalNFTMinted] =
-    useState(false);
 
   const { ethereum } = window;
 
@@ -102,7 +100,7 @@ function App() {
       }
     }
     searchNFTAmount();
-  }, [updatetotalNFTMinted]);
+  }, []);
 
   async function connectWallet() {
     try {
@@ -118,6 +116,7 @@ function App() {
 
       setCurrentAccount(accounts[0]);
       console.log('Conectado', accounts[0]);
+      window.location.reload();
 
       // Setup listener! Isso é para quando o usuário vem no site
       // e já tem a carteira conectada e autorizada
@@ -178,7 +177,6 @@ function App() {
 
         await nftTxn.wait();
 
-        setUpdateTotalNFTMinted(updatetotalNFTMinted!);
         setupEventListener();
         setmessageToUser('');
       } else {
