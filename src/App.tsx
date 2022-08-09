@@ -1,6 +1,8 @@
 import { ethers } from 'ethers';
 import { useEffect, useState } from 'react';
 
+import twitterLogo from './assets/twitter-logo.svg';
+
 import './App.css';
 
 import myEpicNFT from './utils/MyEpicNFT.json';
@@ -21,7 +23,7 @@ function App() {
   const { ethereum } = window;
 
   // Constants
-  const TWITTER_HANDLE = '@jrrmarques';
+  const TWITTER_HANDLE = 'jrrmarques';
   const TWITTER_LINK = `https://www.instagram.com/${TWITTER_HANDLE}`;
 
   const CONTRACT_ADDRESS =
@@ -219,6 +221,20 @@ function App() {
             </button>
           )}
         </div>
+      </div>
+
+      <div className="footer-container">
+        <img
+          alt="Twitter Logo"
+          className="twitter-logo"
+          src={twitterLogo}
+        />
+        <a
+          className="footer-text"
+          href={TWITTER_LINK}
+          target="_blank"
+          rel="noreferrer"
+        >{`feito com ❤️ por @${TWITTER_HANDLE}`}</a>
       </div>
     </div>
   );
